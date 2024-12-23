@@ -7,8 +7,8 @@
 
 module load explorer/1.0
 
-# export CLUSTER_DIRECTORY=/scratch/a.akhter/OpenMPI-test-install
-export CLUSTER_DIRECTORY=/shared/EL9/explorer
+export CLUSTER_DIRECTORY=/home/j.cooke/MPI-Testing
+#export CLUSTER_DIRECTORY=/shared/EL9/explorer
 export SOFTWARE_NAME=OpenMPI
 export SOFTWARE_VERSION=4.1.6
 export GITHUB_URL=git@github.com:northeastern-rc-software-modules/OpenMPI-4.1.6.git

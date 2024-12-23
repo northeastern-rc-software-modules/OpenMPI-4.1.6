@@ -11,15 +11,23 @@ source env_OpenMPI-4.1.6.sh
 # Creating the src directory for the installed application
 mkdir -p $SOFTWARE_DIRECTORY/src
 
+# Installing UCX
+cd $SOFTWARE_DIRECTORY/src
+wget https://github.com/openucx/ucx/releases/download/v1.16.0/ucx-1.16.0.tar.gz
+tar -xvf ucx-1.16.0.tar.gz
+cd ucx-1.16.0/
+./contrib/configure-release --prefix=$SOFTWARE_DIRECTORY --enable-devel-headers
+make
+make install
+
 # Installing OpenMPI/4.1.6
 cd $SOFTWARE_DIRECTORY/src
 wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.6.tar.gz
 tar -xvf openmpi-4.1.6.tar.gz
 cd openmpi-4.1.6
-./configure --prefix=$SOFTWARE_DIRECTORY/ --with-pmix --without-verbs
+./configure --prefix=$SOFTWARE_DIRECTORY/ --with-pmix --without-verbs --with-ucx=$SOFTWARE_DIRECTORY --with-ucx-libdir=$SOFTWARE_DIRECTORY/lib
 make -j all
 make install
-
 
 # Creating modulefile
 touch $SOFTWARE_VERSION
