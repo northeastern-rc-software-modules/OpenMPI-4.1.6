@@ -1,0 +1,25 @@
+monte_carlo.c: In function ‘main’:
+monte_carlo.c:22:13: warning: implicit declaration of function ‘sqrt’ [-Wimplicit-function-declaration]
+   22 |         z = sqrt((x*x) + (y*y));
+      |             ^~~~
+monte_carlo.c:5:1: note: include ‘<math.h>’ or provide a declaration of ‘sqrt’
+    4 | #include <time.h>
+  +++ |+#include <math.h>
+    5 | 
+monte_carlo.c:22:13: warning: incompatible implicit declaration of built-in function ‘sqrt’ [-Wbuiltin-declaration-mismatch]
+   22 |         z = sqrt((x*x) + (y*y));
+      |             ^~~~
+monte_carlo.c:22:13: note: include ‘<math.h>’ or provide a declaration of ‘sqrt’
+/usr/bin/ld: /tmp/ccbhGjfB.o: undefined reference to symbol 'sqrt@@GLIBC_2.2.5'
+/usr/bin/ld: /usr/lib64/libm.so.6: error adding symbols: DSO missing from command line
+collect2: error: ld returned 1 exit status
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: ./monte_carlo
+Node: d0002
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+4 total processes failed to start
